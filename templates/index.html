@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Youth Magnets Gauteng | Empowering the Next Generation</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     
     <!-- SEO & Favicons from original -->
     <meta property="og:title" content="Youth Magnets Gauteng | Empowering the Next Generation">
@@ -269,19 +270,44 @@
         </div>
     </div>
 
-    <!-- Theme JS Plugins -->
+    <!-- Theme JS Plugins (ORDER MATTERS - jQuery first, then GSAP, then rest) -->
     <script src="{{ url_for('static', filename='js/plugins/jquery.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/plugins/swup.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/plugins/swiper.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/plugins/fancybox.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/plugins/gsap.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/plugins/smooth-scroll.js') }}"></script>
     <script src="{{ url_for('static', filename='js/plugins/ScrollTrigger.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plugins/ScrollTo.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plugins/smooth-scroll.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plugins/swiper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plugins/swup.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plugins/fancybox.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plugins/tilt.js') }}"></script>
     
     <!-- Theme Main JS -->
     <script src="{{ url_for('static', filename='js/theme-main.js') }}"></script>
 
     <!-- Custom YMG App JS (Form Logic) -->
     <script type="module" src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+    <!-- Preloader Failsafe: Force-hide after 4s in case of JS error -->
+    <style>
+        @keyframes fadeOutPreloader {
+            0% { opacity: 1; pointer-events: all; }
+            99% { opacity: 0; pointer-events: none; }
+            100% { opacity: 0; display: none; pointer-events: none; }
+        }
+    </style>
+    <script>
+        // Fallback: hide preloader after 4s if GSAP animation fails
+        setTimeout(function() {
+            var preloader = document.querySelector('.mil-preloader');
+            if (preloader && !preloader.classList.contains('mil-hidden')) {
+                preloader.style.transition = 'opacity 0.8s ease';
+                preloader.style.opacity = '0';
+                preloader.style.pointerEvents = 'none';
+                setTimeout(function() {
+                    preloader.classList.add('mil-hidden');
+                }, 900);
+            }
+        }, 4000);
+    </script>
 </body>
 </html>

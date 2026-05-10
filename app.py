@@ -1,6 +1,7 @@
 import os
 import re
 from flask import Flask, render_template, request, jsonify, send_from_directory
+from flask_wtf.csrf import CSRFProtect, generate_csrf
 from dotenv import load_dotenv
 from models import db, Partner
 
@@ -8,10 +9,15 @@ from models import db, Partner
 load_dotenv()
 
 app = Flask(__name__)
+csrf = CSRFProtect(app)
 
 # Configuration
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-fallback-secret')
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///local_fallback.db')
+db_url = os.environ.get('DATABASE_URL', '')
+# Only use PostgreSQL if explicitly configured. Default to SQLite for local dev.
+if not db_url or 'postgresql' not in db_url:
+    db_url = 'sqlite:///local_fallback.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = db_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize extensions
@@ -40,17 +46,18 @@ def register():
 
     # Server-side validation matching frontend logic
     errors = []
-    email_regex = r'^[^@\s]+@[^@\s]+\.[^@\s]+$'
-    phone_regex = r'^[0-9\-\+\s\(\)]{10,15}$'
+    # Strict regex matching validation.js
+    email_regex = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    phone_regex = r'^\+?[\d\s\-()]{10,20}$'
 
-    if not name or len(name) < 2 or len(name) > 100:
-        errors.push('Please enter a valid full name (min 2 characters).') if hasattr(errors, 'push') else errors.append('Please enter a valid full name (min 2 characters).')
+    if not name or len(name.strip()) < 2:
+        errors.append('Full name must be at least 2 characters.')
     
-    if not re.match(email_regex, email):
+    if not email or not re.match(email_regex, email):
         errors.append('Please enter a valid email address.')
     
-    if not re.match(phone_regex, phone):
-        errors.append('Please enter a valid phone number (10-15 digits).')
+    if not phone or not re.match(phone_regex, phone):
+        errors.append('Please enter a valid phone number (at least 10 digits).')
 
     if errors:
         return jsonify({'success': False, 'message': errors[0], 'errors': errors}), 400
@@ -84,4 +91,4 @@ def sitemap():
     return send_from_directory('static/seo', 'sitemap.xml')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5001)

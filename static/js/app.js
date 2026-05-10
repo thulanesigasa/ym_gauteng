@@ -38,12 +38,15 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.querySelector('span').textContent = 'Registering...';
             submitBtn.disabled = true;
 
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
             // Send Real Backend Call with sanitized data
             try {
                 const response = await fetch('/api/register', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrfToken
                     },
                     body: JSON.stringify(validationResult.sanitizedData)
                 });

@@ -63,15 +63,17 @@ h1, h2, h3 {
 .text-blue { color: var(--blue); }
 
 /* Buttons */
-.btn-primary, .btn-large, .btn-submit {
-    display: inline-block;
-    padding: 0.8rem 1.8rem;
+.btn-primary, .btn-large, .btn-submit, .mil-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
     background-color: var(--blue);
     color: var(--white);
     text-decoration: none;
     font-weight: 600;
     border-radius: 4px;
-    transition: var(--transition-fast);
+    transition: var(--transition-smooth);
     border: none;
     cursor: pointer;
     text-transform: uppercase;
@@ -80,14 +82,28 @@ h1, h2, h3 {
 }
 
 .btn-large {
-    padding: 1.2rem 2.5rem;
+    padding: 1.2rem 3rem;
     font-size: 1rem;
 }
 
-.btn-primary:hover, .btn-large:hover, .btn-submit:hover {
+.btn-primary:hover, .btn-large:hover, .btn-submit:hover, .mil-button:hover {
     background-color: var(--black);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.btn-submit:disabled, .mil-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.mil-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .btn-outline {
