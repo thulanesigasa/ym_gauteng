@@ -479,6 +479,39 @@
             }
         }, 4000);
     </script>
+    <script>
+        // Scroll Restoration & Boot Logic
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+
+        window.addEventListener('beforeunload', function () {
+            sessionStorage.setItem('ymg_scroll_pos', window.scrollY);
+        });
+
+        window.addEventListener('pageshow', function (event) {
+            let navEntries = performance.getEntriesByType("navigation");
+            let isBackForward = (navEntries.length > 0 && navEntries[0].type === "back_forward") || event.persisted;
+
+            if (isBackForward) {
+                let savedPos = sessionStorage.getItem('ymg_scroll_pos');
+                if (savedPos !== null) {
+                    let targetPos = parseInt(savedPos, 10);
+                    window.scrollTo(0, targetPos);
+                    
+                    // Preloader can reset scroll, so enforce it until animations complete
+                    let enforceScroll = setInterval(function() {
+                        window.scrollTo(0, targetPos);
+                    }, 50);
+                    
+                    setTimeout(function() { clearInterval(enforceScroll); }, 2500);
+                }
+            } else {
+                // Boot from the home page on fresh loads and reloads
+                window.scrollTo(0, 0);
+            }
+        });
+    </script>
 </body>
 
 </html>
