@@ -11,6 +11,10 @@ def compile_to_static():
     # Replace csrf_token
     content = re.sub(r"\{\{\s*csrf_token\(\)\s*\}\}", "demo-mode", content)
 
+    # Cache bust style.css
+    import time
+    content = content.replace("static/css/style.css", f"static/css/style.css?v={int(time.time())}")
+
     # Note: Form submission will fail natively on GH pages since there is no backend,
     # but the UI will render perfectly.
 
