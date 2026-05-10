@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     throw new Error(result.message || 'Registration failed');
                 }
                 
-                // Success State
+                // Success State: Only visible after 200 OK
                 yvpForm.style.display = 'none';
                 successMessage.classList.remove('hidden');
                 showToast('Registration successful! Welcome to the family.', 'success');
