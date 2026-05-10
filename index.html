@@ -6,9 +6,27 @@
     <title>Youth Magnets Gauteng | Empowering the Next Generation</title>
     <meta name="description" content="Official website for Youth Magnets Gauteng. Join our community of empowered youth through our various departments and ministries.">
     
-    <!-- Fonts -->
+    <!-- SEO & Social Meta Tags -->
+    <meta property="og:title" content="Youth Magnets Gauteng | Empowering the Next Generation">
+    <meta property="og:description" content="Join a community of empowered youth. Attracting, Empowering, and Deploying the next generation of leaders.">
+    <meta property="og:image" content="https://youthmagnetsgauteng.co.za/assets/og-image.jpg">
+    <meta property="og:url" content="https://youthmagnetsgauteng.co.za">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Youth Magnets Gauteng">
+    <meta name="twitter:description" content="Join a community of empowered youth in Gauteng.">
+    <meta name="twitter:image" content="https://youthmagnetsgauteng.co.za/assets/og-image.jpg">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Fonts & Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <!-- Styles -->
@@ -18,19 +36,21 @@
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
 </head>
 <body>
-    <nav id="main-nav" class="navbar">
+    <div id="toast-container" class="toast-container"></div>
+
+    <nav id="main-nav" class="navbar" aria-label="Main Navigation">
         <div class="container nav-content">
-            <a href="#" class="logo">YM<span>G</span></a>
+            <a href="#" class="logo" aria-label="Youth Magnets Gauteng Home">YM<span>G</span></a>
             <ul class="nav-links">
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#departments">Departments</a></li>
-                <li><a href="#register" class="btn-primary">Join YVP</a></li>
+                <li><a href="#register" class="btn-primary" aria-label="Join Youth Vision Partners">Join YVP</a></li>
             </ul>
-            <div class="menu-toggle" id="mobile-menu">
+            <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Mobile Menu" aria-expanded="false">
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
@@ -84,35 +104,35 @@
                 </div>
                 <div class="dept-grid">
                     <div class="dept-card reveal-up" id="dept-empowerher">
-                        <div class="dept-icon">
+                        <div class="dept-icon" role="img" aria-label="EmpowerHer Icon">
                             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path><path d="M12 12l8.45 -4.75"></path><path d="M12 12l1 12"></path><path d="M12 12l-8.5 -4.4"></path><path d="M12 12l-1 12"></path></svg>
                         </div>
                         <h3>EmpowerHer</h3>
                         <p>Fostering leadership and personal development for young women.</p>
                     </div>
                     <div class="dept-card reveal-up" id="dept-choir">
-                        <div class="dept-icon">
+                        <div class="dept-icon" role="img" aria-label="BTA Youth Choir Icon">
                             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
                         </div>
                         <h3>BTA Youth Choir</h3>
                         <p>Worship through excellence in music and vocal performance.</p>
                     </div>
                     <div class="dept-card reveal-up" id="dept-media">
-                        <div class="dept-icon">
+                        <div class="dept-icon" role="img" aria-label="Media & Events Team Icon">
                             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
                         </div>
                         <h3>Media & Events Team</h3>
                         <p>Capturing the vision and creating immersive experiences.</p>
                     </div>
                     <div class="dept-card reveal-up" id="dept-kfmi">
-                        <div class="dept-icon">
+                        <div class="dept-icon" role="img" aria-label="KFMI Youth Icon">
                             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c1 2 2.5 3.5 4.5 4.5c-2 1 -3.5 2.5 -4.5 4.5c-1 -2 -2.5 -3.5 -4.5 -4.5c2 -1 3.5 -2.5 4.5 -4.5"></path><path d="M18 13c.7 1.3 1.7 2.3 3 3c-1.3 .7 -2.3 1.7 -3 3c-.7 -1.3 -1.7 -2.3 -3 -3c1.3 -.7 2.3 -1.7 3 -3"></path><path d="M7 14c.4 .8 1.1 1.5 2 2c-.9 .5 -1.6 1.2 -2 2c-.4 -.8 -1.1 -1.5 -2 -2c.9 -.5 1.6 -1.2 2 -2"></path></svg>
                         </div>
                         <h3>KFMI Youth</h3>
                         <p>Igniting spiritual fire and foundation in the youth.</p>
                     </div>
                     <div class="dept-card reveal-up" id="dept-campus">
-                        <div class="dept-icon">
+                        <div class="dept-icon" role="img" aria-label="Campus Ministry Icon">
                             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
                         </div>
                         <h3>Campus Ministry</h3>
@@ -128,16 +148,16 @@
                 <div class="social-box reveal-up">
                     <h2>Connect With Us</h2>
                     <div class="social-links">
-                        <a href="#" class="social-link" id="ig-link">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        <a href="#" class="social-link" id="ig-link" aria-label="Follow Youth Magnets Gauteng on Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Instagram Icon"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                             <span>Instagram</span>
                         </a>
-                        <a href="#" class="social-link" id="fb-link">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        <a href="#" class="social-link" id="fb-link" aria-label="Follow Youth Magnets Gauteng on Facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Facebook Icon"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
                             <span>Facebook</span>
                         </a>
-                        <a href="#" class="social-link" id="tiktok-link">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4v-12a5 5 0 0 0 5 5"></path></svg>
+                        <a href="#" class="social-link" id="tiktok-link" aria-label="Follow Youth Magnets Gauteng on TikTok">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="TikTok Icon"><path d="M9 12a4 4 0 1 0 4 4v-12a5 5 0 0 0 5 5"></path></svg>
                             <span>TikTok</span>
                         </a>
                     </div>
@@ -169,17 +189,20 @@
                         <h2>Youth Vision Partners</h2>
                         <p>Join the movement as a partner and help us shape the future.</p>
                     </div>
-                    <form id="yvp-form" class="registration-form">
+                    <form id="yvp-form" class="registration-form" novalidate>
                         <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Full Name" required>
+                            <label for="name" class="sr-only">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Full Name" required aria-required="true">
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Email Address" required>
+                            <label for="email" class="sr-only">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Email Address" required aria-required="true">
                         </div>
                         <div class="form-group">
-                            <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+                            <label for="phone" class="sr-only">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Phone Number" required aria-required="true">
                         </div>
-                        <button type="submit" class="btn-submit" id="submit-btn">Register Now</button>
+                        <button type="submit" class="btn-submit" id="submit-btn" aria-label="Submit Registration">Register Now</button>
                     </form>
                     <div id="success-message" class="hidden">
                         <div class="success-icon">✓</div>

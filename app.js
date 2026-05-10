@@ -44,7 +44,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // 4. YVP Form Submission Logic
+    // 4. Toast Notification System
+    const toastContainer = document.getElementById('toast-container');
+    function showToast(message, type = 'success') {
+        const toast = document.createElement('div');
+        toast.className = `toast ${type}`;
+        toast.textContent = message;
+        toastContainer.appendChild(toast);
+        
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            setTimeout(() => toast.remove(), 500);
+        }, 4000);
+    }
+
+    // 5. YVP Form Submission Logic with Validation
     const yvpForm = document.getElementById('yvp-form');
     const successMessage = document.getElementById('success-message');
     const submitBtn = document.getElementById('submit-btn');
@@ -53,6 +67,16 @@ document.addEventListener('DOMContentLoaded', () => {
         yvpForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
+            const formData = new FormData(yvpForm);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Input Validation & Sanitization
+            const errors = validateForm(data);
+            if (errors.length > 0) {
+                showToast(errors[0], 'error');
+                return;
+            }
+
             // UI Feedback
             submitBtn.textContent = 'Registering...';
             submitBtn.disabled = true;
@@ -64,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Success State
                 yvpForm.classList.add('hidden');
                 successMessage.classList.remove('hidden');
+                showToast('Registration successful! Check your email.', 'success');
                 
                 // Entrance animation for success message
                 successMessage.style.opacity = '0';
@@ -76,13 +101,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
             } catch (error) {
                 console.error('Registration failed:', error);
+                showToast('Registration failed. Please try again.', 'error');
                 submitBtn.textContent = 'Try Again';
                 submitBtn.disabled = false;
             }
         });
     }
 
-    // 5. Helper: Simulate Backend API Call
+    function validateForm(data) {
+        const errors = [];
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+        // Sanitization (Basic XSS prevention)
+        for (let key in data) {
+            data[key] = data[key].replace(/<[^>]*>?/gm, '');
+        }
+
+        if (!data.name || data.name.length < 2) errors.push('Please enter your full name.');
+        if (!emailRegex.test(data.email)) errors.push('Please enter a valid email address.');
+        if (!data.phone || data.phone.length < 10) errors.push('Please enter a valid phone number.');
+        
+        return errors;
+    }
+
+    // 6. Helper: Simulate Backend API Call
     function simulateBackendCall() {
         return new Promise((resolve) => {
             setTimeout(() => {
@@ -91,14 +133,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 6. Mobile Menu Toggle (Simplified)
+    // 7. Mobile Menu Toggle with ARIA & Focus Trap
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
+    const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
 
     if (mobileMenu) {
         mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+            const isOpen = navLinks.classList.toggle('active');
             mobileMenu.classList.toggle('open');
+            mobileMenu.setAttribute('aria-expanded', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : 'initial';
+            
+            if (isOpen) {
+                const firstFocusable = navLinks.querySelectorAll(focusableElements)[0];
+                if (firstFocusable) firstFocusable.focus();
+            }
+        });
+
+        // Close menu on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenu.classList.remove('open');
+                mobileMenu.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = 'initial';
+            });
         });
     }
 
