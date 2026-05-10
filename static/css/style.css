@@ -34,9 +34,7 @@
 html {
     scroll-behavior: initial;
     overflow-x: hidden;
-    zoom: 0.8; /* Simulate 80% browser zoom */
-    -moz-transform: scale(0.8);
-    -moz-transform-origin: top center;
+    font-size: 80%; /* Safely scale down rem-based sizing instead of CSS zoom */
 }
 
 body {
