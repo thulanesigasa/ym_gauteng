@@ -83,14 +83,26 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.textContent = 'Registering...';
             submitBtn.disabled = true;
 
-            // Simulate Backend Call with sanitized data
+            // Send Real Backend Call with sanitized data
             try {
-                await simulateBackendCall(validationResult.sanitizedData);
+                const response = await fetch('/api/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(validationResult.sanitizedData)
+                });
+                
+                const result = await response.json();
+
+                if (!response.ok || !result.success) {
+                    throw new Error(result.message || 'Registration failed');
+                }
                 
                 // Success State
                 yvpForm.classList.add('hidden');
                 successMessage.classList.remove('hidden');
-                showToast('Registration successful! Check your email.', 'success');
+                showToast('Registration successful! Welcome to the family.', 'success');
                 
                 // Entrance animation for success message
                 successMessage.style.opacity = '0';
@@ -103,19 +115,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             } catch (error) {
                 console.error('Registration failed:', error);
-                showToast('Registration failed. Please try again.', 'error');
+                showToast(error.message || 'Registration failed. Please try again.', 'error');
                 submitBtn.textContent = 'Try Again';
                 submitBtn.disabled = false;
             }
-        });
-    }
-
-    // 6. Helper: Simulate Backend API Call
-    function simulateBackendCall() {
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve({ success: true, message: 'Partner registered successfully' });
-            }, 1500);
         });
     }
 
