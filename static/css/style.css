@@ -34,6 +34,9 @@
 html {
     scroll-behavior: initial;
     overflow-x: hidden;
+    zoom: 0.8; /* Simulate 80% browser zoom */
+    -moz-transform: scale(0.8);
+    -moz-transform-origin: top center;
 }
 
 body {
