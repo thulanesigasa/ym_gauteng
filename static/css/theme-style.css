@@ -993,32 +993,6 @@ spaces
   }
 }
 
-/* =============================================
-   YMG: Fluid Responsive Padding Overrides
-   Ensures sections breathe on mobile/tablet
-   ============================================= */
-@media screen and (max-width: 767px) {
-  .mil-p-120-120,
-  .mil-p-120-90,
-  .mil-p-120-60,
-  .mil-p-120-30,
-  .mil-p-120-0 {
-    padding-top: clamp(40px, 10vw, 90px);
-  }
-  .mil-p-120-120 { padding-bottom: clamp(40px, 10vw, 90px); }
-  .mil-p-120-90  { padding-bottom: clamp(30px, 8vw, 60px);  }
-  .mil-p-120-60  { padding-bottom: clamp(20px, 6vw, 40px);  }
-  .mil-p-120-30  { padding-bottom: clamp(10px, 4vw, 30px);  }
-  .mil-p-120-0   { padding-bottom: 0; }
-
-  /* Form inputs full-width on mobile */
-  #yvp-form .col-lg-6 {
-    width: 100%;
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-}
-
 .mil-adaptive-right {
   width: 100%;
   display: -webkit-box;

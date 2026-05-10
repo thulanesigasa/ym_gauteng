@@ -59,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Success State: Only visible after 200 OK
                 yvpForm.style.display = 'none';
-                successMessage.style.display = 'block';
                 successMessage.classList.remove('hidden');
                 showToast('Registration successful! Welcome to the family.', 'success');
                 
