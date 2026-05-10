@@ -212,12 +212,24 @@ h1, h2, h3 {
     to { transform: translateX(0); opacity: 1; }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .mil-merch-banner {
-        padding: 3rem 1.5rem;
-    }
-    .mil-merch-banner h3 {
-        font-size: 1.8rem;
-    }
+/* Social Grid */
+.mil-social-grid {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.mil-social-grid a {
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.9rem;
+    transition: var(--transition-smooth);
+}
+
+.mil-social-grid a:hover {
+    color: var(--blue-light) !important;
+    transform: translateY(-5px);
 }
