@@ -220,7 +220,7 @@ h1, h2, h3 {
     flex-wrap: wrap;
 }
 
-/* Social Cards (Uiverse.io Style) */
+/* Social Cards (Uiverse.io Style adapted for dark bg) */
 .social-card-wrapper {
     display: flex;
     flex-direction: column;
@@ -229,34 +229,29 @@ h1, h2, h3 {
 }
 
 .social-card {
-    width: 90px;
-    height: 90px;
     outline: none;
     border: none;
-    background: white;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    background: transparent;
+    box-shadow: none;
     transition: .2s ease-in-out;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    padding: 15px;
 }
 
-.card-tiktok { border-radius: 90px 5px 5px 5px; }
-.card-instagram { border-radius: 5px 90px 5px 5px; }
-.card-facebook { border-radius: 5px 5px 5px 90px; }
+.card-tiktok .tiktok-icon { fill: white; transition: .2s ease-in-out; }
+.card-instagram .instagram-icon { fill: white; transition: .2s ease-in-out; }
+.card-facebook .facebook-icon { fill: white; transition: .2s ease-in-out; }
 
-.card-tiktok .tiktok-icon { fill: #000000; transition: .2s ease-in-out; }
-.card-instagram .instagram-icon { fill: #cc39a4; transition: .2s ease-in-out; }
-.card-facebook .facebook-icon { fill: #1877F2; transition: .2s ease-in-out; }
+.social-card-wrapper:hover .card-tiktok { transform: scale(1.1); }
+.social-card-wrapper:hover .card-tiktok .tiktok-icon { fill: var(--blue-light); }
 
-.social-card-wrapper:hover .card-tiktok { background-color: #000000; transform: scale(1.1); }
-.social-card-wrapper:hover .card-tiktok .tiktok-icon { fill: white; }
+.social-card-wrapper:hover .card-instagram { transform: scale(1.1); }
+.social-card-wrapper:hover .card-instagram .instagram-icon { fill: #cc39a4; }
 
-.social-card-wrapper:hover .card-instagram { background-color: #cc39a4; transform: scale(1.1); }
-.social-card-wrapper:hover .card-instagram .instagram-icon { fill: white; }
-
-.social-card-wrapper:hover .card-facebook { background-color: #1877F2; transform: scale(1.1); }
-.social-card-wrapper:hover .card-facebook .facebook-icon { fill: white; }
+.social-card-wrapper:hover .card-facebook { transform: scale(1.1); }
+.social-card-wrapper:hover .card-facebook .facebook-icon { fill: #1877F2; }
 
 .mil-mt-15 { margin-top: 15px; }
