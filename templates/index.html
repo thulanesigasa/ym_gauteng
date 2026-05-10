@@ -75,6 +75,7 @@
                                     <li class="mil-active"><a href="#hero">Home</a></li>
                                     <li><a href="#about">About</a></li>
                                     <li><a href="#departments">Departments</a></li>
+                                    <li><a href="#merch">Merch</a></li>
                                     <li><a href="#register">Join YVP</a></li>
                                 </ul>
                             </nav>
@@ -149,7 +150,9 @@
                                             </text>
                                         </g>
                                     </svg>
-                                    <a href="#about" class="mil-button mil-arrow-place mil-icon-button mil-arrow-down"></a>
+                                    <a href="#about" class="mil-button mil-arrow-place mil-icon-button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-down"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -216,13 +219,49 @@
                     </div>
                 </section>
 
+                <!-- merch -->
+                <section id="merch">
+                    <div class="container mil-p-120-120">
+                        <div class="row justify-content-center mil-mb-120">
+                            <div class="col-lg-8">
+                                <h2 class="mil-center mil-up mil-mb-60">Official <span class="mil-thin">Merchandise</span></h2>
+                                <!-- Placeholder State -->
+                                <div class="mil-merch-banner mil-up">
+                                    <div class="mil-banner-content mil-center">
+                                        <h3 class="mil-mb-30">Store Opening Soon</h3>
+                                        <p class="mil-mb-30">We are currently curating the first batch of YMG apparel. Stay tuned for the launch!</p>
+                                        <span class="mil-button mil-arrow-place" style="pointer-events: none; opacity: 0.5;">
+                                            <span>Notify Me</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Populated State (Hidden for now or shown as preview) -->
+                        <div class="row mil-merch-grid" style="display: none;">
+                            <div class="col-md-6 col-lg-4 mil-mb-60">
+                                <div class="mil-merch-card mil-up">
+                                    <div class="mil-merch-img">
+                                        <img src="{{ url_for('static', filename='img/merch/tshirt.jpg') }}" alt="YMG T-Shirt">
+                                    </div>
+                                    <div class="mil-merch-content mil-center">
+                                        <h5 class="mil-mb-15">YMG Signature Tee</h5>
+                                        <p class="mil-mb-15">Coming Soon</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 <!-- registration form -->
                 <section id="register">
                     <div class="container mil-p-120-120">
                         <div class="row justify-content-center">
                             <div class="col-lg-8">
-                                <h2 class="mil-center mil-up mil-mb-60">Youth Vision <span class="mil-thin">Partners</span></h2>
-                                <p class="mil-center mil-up mil-mb-60">Join the movement as a partner and help us shape the future.</p>
+                                <h2 class="mil-center mil-up mil-mb-20">Youth Vision <span class="mil-thin">Partners</span></h2>
+                                <p class="mil-center mil-up mil-mb-20">Join the movement as a partner and help us shape the future.</p>
                                 <form id="yvp-form" class="mil-up" novalidate>
                                     <div class="row">
                                         <div class="col-lg-12">
