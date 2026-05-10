@@ -1,3 +1,5 @@
+import { validateRegistrationForm } from './validation.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Initialize Lenis Smooth Scroll
     const lenis = new Lenis({
@@ -70,10 +72,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(yvpForm);
             const data = Object.fromEntries(formData.entries());
             
-            // Input Validation & Sanitization
-            const errors = validateForm(data);
-            if (errors.length > 0) {
-                showToast(errors[0], 'error');
+            // Input Validation & Sanitization via Module
+            const validationResult = validateRegistrationForm(data);
+            if (!validationResult.isValid) {
+                showToast(validationResult.errors[0], 'error');
                 return;
             }
 
@@ -81,9 +83,9 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.textContent = 'Registering...';
             submitBtn.disabled = true;
 
-            // Simulate Backend Call
+            // Simulate Backend Call with sanitized data
             try {
-                await simulateBackendCall();
+                await simulateBackendCall(validationResult.sanitizedData);
                 
                 // Success State
                 yvpForm.classList.add('hidden');
@@ -106,22 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitBtn.disabled = false;
             }
         });
-    }
-
-    function validateForm(data) {
-        const errors = [];
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        
-        // Sanitization (Basic XSS prevention)
-        for (let key in data) {
-            data[key] = data[key].replace(/<[^>]*>?/gm, '');
-        }
-
-        if (!data.name || data.name.length < 2) errors.push('Please enter your full name.');
-        if (!emailRegex.test(data.email)) errors.push('Please enter a valid email address.');
-        if (!data.phone || data.phone.length < 10) errors.push('Please enter a valid phone number.');
-        
-        return errors;
     }
 
     // 6. Helper: Simulate Backend API Call
