@@ -4,228 +4,284 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Youth Magnets Gauteng | Empowering the Next Generation</title>
-    <meta name="description" content="Official website for Youth Magnets Gauteng. Join our community of empowered youth through our various departments and ministries.">
     
-    <!-- SEO & Social Meta Tags -->
+    <!-- SEO & Favicons from original -->
     <meta property="og:title" content="Youth Magnets Gauteng | Empowering the Next Generation">
-    <meta property="og:description" content="Join a community of empowered youth. Attracting, Empowering, and Deploying the next generation of leaders.">
-    <meta property="og:image" content="https://youthmagnetsgauteng.co.za/assets/og-image.jpg">
-    <meta property="og:url" content="https://youthmagnetsgauteng.co.za">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Youth Magnets Gauteng">
-    <meta name="twitter:description" content="Join a community of empowered youth in Gauteng.">
-    <meta name="twitter:image" content="https://youthmagnetsgauteng.co.za/assets/og-image.jpg">
-
-    <!-- Favicons -->
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon-16x16.png') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
-    <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
-
-    <!-- Fonts & Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://unpkg.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     
-    <!-- Styles -->
+    <!-- Theme CSS Plugins -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/plugins/bootstrap-grid.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/plugins/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/plugins/swiper.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/plugins/fancybox.min.css') }}">
+    
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme-style.css') }}">
+    
+    <!-- Original YMG CSS (Kept for toast notifications if needed) -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    
-    <!-- Smooth Scroll (Lenis) -->
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
 </head>
 <body>
-    <div id="toast-container" class="toast-container"></div>
-
-    <nav id="main-nav" class="navbar" aria-label="Main Navigation">
-        <div class="container nav-content">
-            <a href="#" class="logo" aria-label="Youth Magnets Gauteng Home">YM<span>G</span></a>
-            <ul class="nav-links">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#departments">Departments</a></li>
-                <li><a href="#register" class="btn-primary" aria-label="Join Youth Vision Partners">Join YVP</a></li>
-            </ul>
-            <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Mobile Menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-            </button>
+    <!-- Theme Wrapper -->
+    <div class="mil-wrapper" id="top">
+        <!-- cursor -->
+        <div class="mil-ball">
+            <span class="mil-icon-1">
+                <svg viewBox="0 0 128 128">
+                    <path d="M106.1,41.9c-1.2-1.2-3.1-1.2-4.2,0c-1.2,1.2-1.2,3.1,0,4.2L116.8,61H11.2l14.9-14.9c1.2-1.2,1.2-3.1,0-4.2 c-1.2-1.2-3.1-1.2-4.2,0l-20,20c-1.2,1.2-1.2,3.1,0,4.2l20,20c0.6,0.6,1.4,0.9,2.1,0.9s1.5-0.3,2.1-0.9c1.2-1.2,1.2-3.1,0-4.2 L11.2,67h105.5l-14.9,14.9c-1.2,1.2-1.2,3.1,0,4.2c0.6,0.6,1.4,0.9,2.1,0.9s1.5-0.3,2.1-0.9l20-20c1.2-1.2,1.2-3.1,0-4.2L106.1,41.9 z" />
+                </svg>
+            </span>
+            <div class="mil-more-text">More</div>
+            <div class="mil-choose-text">Сhoose</div>
         </div>
-    </nav>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero-section">
-            <div class="container hero-container">
-                <h1 class="reveal-text">Youth Magnets <span class="text-blue">Gauteng</span></h1>
-                <p class="hero-subtitle reveal-up">Attracting, Empowering, and Deploying the next generation of leaders.</p>
-                <div class="hero-btns reveal-up">
-                    <a href="#register" class="btn-large">Become a Partner</a>
-                    <a href="#about" class="btn-outline">Learn More</a>
+        <!-- preloader -->
+        <div class="mil-preloader">
+            <div class="mil-preloader-animation">
+                <div class="mil-pos-abs mil-animation-1">
+                    <p class="mil-h3 mil-muted mil-thin">Youth Magnets</p>
+                    <p class="mil-h3 mil-muted">presents</p>
+                    <p class="mil-h3 mil-muted mil-thin">Gauteng</p>
                 </div>
-            </div>
-            <div class="hero-scroll-indicator">
-                <div class="mouse"></div>
-            </div>
-        </section>
-
-        <!-- About Us Section -->
-        <section id="about" class="about-section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="tag">Our Story</span>
-                    <h2 class="reveal-up">About Us</h2>
-                </div>
-                <div class="about-grid">
-                    <div class="about-content reveal-up">
-                        <p>Youth Magnets Gauteng is a dynamic movement dedicated to the spiritual, personal, and professional growth of young people. We believe in creating a space where every youth can discover their purpose and manifest their potential.</p>
-                        <div class="mission-vision">
-                            <div class="mv-item">
-                                <h3>Mission</h3>
-                                <p>To empower youth with tools for leadership and spiritual excellence.</p>
-                            </div>
-                            <div class="mv-item">
-                                <h3>Vision</h3>
-                                <p>A generation of youth leading with integrity and passion across Gauteng.</p>
-                            </div>
-                        </div>
+                <div class="mil-pos-abs mil-animation-2">
+                    <div class="mil-reveal-frame">
+                        <p class="mil-reveal-box"></p>
+                        <p class="mil-h3 mil-muted mil-thin">youthmagnetsgauteng.co.za</p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Departments Grid -->
-        <section id="departments" class="departments-section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="tag">What we do</span>
-                    <h2 class="reveal-up">Our Departments</h2>
-                </div>
-                <div class="dept-grid">
-                    <div class="dept-card reveal-up" id="dept-empowerher">
-                        <div class="dept-icon" role="img" aria-label="EmpowerHer Icon">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path><path d="M12 12l8.45 -4.75"></path><path d="M12 12l1 12"></path><path d="M12 12l-8.5 -4.4"></path><path d="M12 12l-1 12"></path></svg>
-                        </div>
-                        <h3>EmpowerHer</h3>
-                        <p>Fostering leadership and personal development for young women.</p>
-                    </div>
-                    <div class="dept-card reveal-up" id="dept-choir">
-                        <div class="dept-icon" role="img" aria-label="BTA Youth Choir Icon">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
-                        </div>
-                        <h3>BTA Youth Choir</h3>
-                        <p>Worship through excellence in music and vocal performance.</p>
-                    </div>
-                    <div class="dept-card reveal-up" id="dept-media">
-                        <div class="dept-icon" role="img" aria-label="Media & Events Team Icon">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-                        </div>
-                        <h3>Media & Events Team</h3>
-                        <p>Capturing the vision and creating immersive experiences.</p>
-                    </div>
-                    <div class="dept-card reveal-up" id="dept-kfmi">
-                        <div class="dept-icon" role="img" aria-label="KFMI Youth Icon">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c1 2 2.5 3.5 4.5 4.5c-2 1 -3.5 2.5 -4.5 4.5c-1 -2 -2.5 -3.5 -4.5 -4.5c2 -1 3.5 -2.5 4.5 -4.5"></path><path d="M18 13c.7 1.3 1.7 2.3 3 3c-1.3 .7 -2.3 1.7 -3 3c-.7 -1.3 -1.7 -2.3 -3 -3c1.3 -.7 2.3 -1.7 3 -3"></path><path d="M7 14c.4 .8 1.1 1.5 2 2c-.9 .5 -1.6 1.2 -2 2c-.4 -.8 -1.1 -1.5 -2 -2c.9 -.5 1.6 -1.2 2 -2"></path></svg>
-                        </div>
-                        <h3>KFMI Youth</h3>
-                        <p>Igniting spiritual fire and foundation in the youth.</p>
-                    </div>
-                    <div class="dept-card reveal-up" id="dept-campus">
-                        <div class="dept-icon" role="img" aria-label="Campus Ministry Icon">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
-                        </div>
-                        <h3>Campus Ministry</h3>
-                        <p>Bringing the message of hope to educational institutions.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Social Media Hub -->
-        <section id="social" class="social-section">
-            <div class="container">
-                <div class="social-box reveal-up">
-                    <h2>Connect With Us</h2>
-                    <div class="social-links">
-                        <a href="#" class="social-link" id="ig-link" aria-label="Follow Youth Magnets Gauteng on Instagram">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Instagram Icon"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                            <span>Instagram</span>
-                        </a>
-                        <a href="#" class="social-link" id="fb-link" aria-label="Follow Youth Magnets Gauteng on Facebook">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Facebook Icon"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                            <span>Facebook</span>
-                        </a>
-                        <a href="#" class="social-link" id="tiktok-link" aria-label="Follow Youth Magnets Gauteng on TikTok">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="TikTok Icon"><path d="M9 12a4 4 0 1 0 4 4v-12a5 5 0 0 0 5 5"></path></svg>
-                            <span>TikTok</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Merch Store (Coming Soon) -->
-        <section id="merch" class="merch-section">
-            <div class="container">
-                <div class="merch-placeholder reveal-up">
-                    <div class="merch-badge">COMING SOON</div>
-                    <h2>Exclusive YMG Merch</h2>
-                    <p>Get ready to wear the movement. Our premium collection is launching soon.</p>
-                    <div class="merch-preview">
-                        <div class="preview-item"></div>
-                        <div class="preview-item"></div>
-                        <div class="preview-item"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- YVP Registration -->
-        <section id="register" class="register-section">
-            <div class="container">
-                <div class="register-card reveal-up">
-                    <div class="register-header">
-                        <h2>Youth Vision Partners</h2>
-                        <p>Join the movement as a partner and help us shape the future.</p>
-                    </div>
-                    <form id="yvp-form" class="registration-form" novalidate>
-                        <div class="form-group">
-                            <label for="name" class="sr-only">Full Name</label>
-                            <input type="text" id="name" name="name" placeholder="Full Name" required aria-required="true">
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="sr-only">Email Address</label>
-                            <input type="email" id="email" name="email" placeholder="Email Address" required aria-required="true">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone" class="sr-only">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="Phone Number" required aria-required="true">
-                        </div>
-                        <button type="submit" class="btn-submit" id="submit-btn" aria-label="Submit Registration">Register Now</button>
-                    </form>
-                    <div id="success-message" class="hidden">
-                        <div class="success-icon">✓</div>
-                        <h3>Welcome to the Family!</h3>
-                        <p>Your registration was successful. An automated email is on its way to you.</p>
-                        <a href="https://chat.whatsapp.com/example" target="_blank" class="btn-whatsapp">Join WhatsApp Group</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <a href="#" class="logo">YM<span>G</span></a>
-                    <p>&copy; 2026 Youth Magnets Gauteng. All rights reserved.</p>
                 </div>
             </div>
         </div>
-    </footer>
 
+        <!-- scrollbar progress -->
+        <div class="mil-progress-track">
+            <div class="mil-progress"></div>
+        </div>
+
+        <!-- menu -->
+        <div class="mil-menu-frame">
+            <div class="mil-frame-top">
+                <a href="/" class="mil-logo">YMG.</a>
+                <div class="mil-menu-btn">
+                    <span></span>
+                </div>
+            </div>
+            <div class="container">
+                <div class="mil-menu-content">
+                    <div class="row">
+                        <div class="col-xl-5">
+                            <nav class="mil-main-menu" id="swupMenu">
+                                <ul>
+                                    <li class="mil-active"><a href="#hero">Home</a></li>
+                                    <li><a href="#about">About</a></li>
+                                    <li><a href="#departments">Departments</a></li>
+                                    <li><a href="#register">Join YVP</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- curtain -->
+        <div class="mil-curtain"></div>
+
+        <!-- frame -->
+        <div class="mil-frame">
+            <div class="mil-frame-top">
+                <a href="/" class="mil-logo">YMG.</a>
+                <div class="mil-menu-btn">
+                    <span></span>
+                </div>
+            </div>
+            <div class="mil-frame-bottom">
+                <div class="mil-current-page"></div>
+                <div class="mil-back-to-top">
+                    <a href="#top" class="mil-link mil-dark mil-arrow-place">
+                        <span>Back to top</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- content -->
+        <div class="mil-content">
+            <div id="swupMain" class="mil-main-transition">
+                <!-- Toast container -->
+                <div id="toast-container" class="toast-container"></div>
+
+                <!-- banner -->
+                <section id="hero" class="mil-banner mil-dark-bg">
+                    <div class="mi-invert-fix">
+                        <div class="mil-animation-frame">
+                            <div class="mil-animation mil-position-1 mil-scale" data-value-1="7" data-value-2="1.6"></div>
+                            <div class="mil-animation mil-position-2 mil-scale" data-value-1="4" data-value-2="1"></div>
+                            <div class="mil-animation mil-position-3 mil-scale" data-value-1="1.2" data-value-2=".1"></div>
+                        </div>
+
+                        <div class="mil-gradient"></div>
+
+                        <div class="container">
+                            <div class="mil-banner-content mil-up">
+                                <h1 class="mil-muted mil-mb-60">Youth Magnets <br><span class="mil-thin">Gauteng</span></h1>
+                                <div class="row">
+                                    <div class="col-md-7 col-lg-5">
+                                        <p class="mil-light-soft mil-mb-60">Attracting, Empowering, and Deploying the next generation of leaders.</p>
+                                    </div>
+                                </div>
+                                <a href="#register" class="mil-button mil-arrow-place mil-btn-space">
+                                    <span>Become a Partner</span>
+                                </a>
+                                <a href="#about" class="mil-link mil-muted mil-arrow-place">
+                                    <span>Learn More</span>
+                                </a>
+                                <div class="mil-circle-text">
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300" enable-background="new 0 0 300 300" xml:space="preserve" class="mil-ct-svg mil-rotate" data-value="360">
+                                        <defs>
+                                            <path id="circlePath" d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 " />
+                                        </defs>
+                                        <circle cx="150" cy="100" r="75" fill="none" />
+                                        <g>
+                                            <use xlink:href="#circlePath" fill="none" />
+                                            <text style="letter-spacing: 6.5px">
+                                                <textPath xlink:href="#circlePath">Scroll down - Scroll down - </textPath>
+                                            </text>
+                                        </g>
+                                    </svg>
+                                    <a href="#about" class="mil-button mil-arrow-place mil-icon-button mil-arrow-down"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- about -->
+                <section id="about">
+                    <div class="container mil-p-120-30">
+                        <div class="row justify-content-between align-items-center">
+                            <div class="col-lg-6 col-xl-5">
+                                <div class="mil-mb-90">
+                                    <h2 class="mil-up mil-mb-60">About <br><span class="mil-thin">Us</span></h2>
+                                    <p class="mil-up mil-mb-30">Youth Magnets Gauteng is a dynamic movement dedicated to the spiritual, personal, and professional growth of young people. We believe in creating a space where every youth can discover their purpose and manifest their potential.</p>
+                                    <p class="mil-up mil-mb-60">To empower youth with tools for leadership and spiritual excellence. A generation of youth leading with integrity and passion across Gauteng.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- departments -->
+                <section id="departments" class="mil-dark-bg">
+                    <div class="mi-invert-fix">
+                        <div class="container mil-p-120-0">
+                            <div class="mil-mb-120">
+                                <div class="mil-complex-text justify-content-center mil-up mil-mb-15">
+                                    <h2 class="mil-h1 mil-muted mil-center">Our <span class="mil-thin">Departments</span></h2>
+                                </div>
+                            </div>
+                            <div class="row mil-services-grid m-0">
+                                <div class="col-md-6 col-lg-4 mil-services-grid-item p-0">
+                                    <a href="#." class="mil-service-card-sm mil-up">
+                                        <h5 class="mil-muted mil-mb-30">EmpowerHer</h5>
+                                        <p class="mil-light-soft mil-mb-30">Fostering leadership and personal development for young women.</p>
+                                    </a>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mil-services-grid-item p-0">
+                                    <a href="#." class="mil-service-card-sm mil-up">
+                                        <h5 class="mil-muted mil-mb-30">BTA Youth Choir</h5>
+                                        <p class="mil-light-soft mil-mb-30">Worship through excellence in music and vocal performance.</p>
+                                    </a>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mil-services-grid-item p-0">
+                                    <a href="#." class="mil-service-card-sm mil-up">
+                                        <h5 class="mil-muted mil-mb-30">Media & Events</h5>
+                                        <p class="mil-light-soft mil-mb-30">Capturing the vision and creating immersive experiences.</p>
+                                    </a>
+                                </div>
+                                <div class="col-md-6 col-lg-6 mil-services-grid-item p-0">
+                                    <a href="#." class="mil-service-card-sm mil-up">
+                                        <h5 class="mil-muted mil-mb-30">KFMI Youth</h5>
+                                        <p class="mil-light-soft mil-mb-30">Igniting spiritual fire and foundation in the youth.</p>
+                                    </a>
+                                </div>
+                                <div class="col-md-6 col-lg-6 mil-services-grid-item p-0">
+                                    <a href="#." class="mil-service-card-sm mil-up">
+                                        <h5 class="mil-muted mil-mb-30">Campus Ministry</h5>
+                                        <p class="mil-light-soft mil-mb-30">Bringing the message of hope to educational institutions.</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- registration form -->
+                <section id="register">
+                    <div class="container mil-p-120-120">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <h2 class="mil-center mil-up mil-mb-60">Youth Vision <span class="mil-thin">Partners</span></h2>
+                                <p class="mil-center mil-up mil-mb-60">Join the movement as a partner and help us shape the future.</p>
+                                <form id="yvp-form" class="mil-up" novalidate>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <input type="text" id="name" name="name" placeholder="Full Name" required>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <input type="email" id="email" name="email" placeholder="Email Address" required>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+                                        </div>
+                                        <div class="col-lg-12 mil-center">
+                                            <button type="submit" class="mil-button mil-arrow-place" id="submit-btn">
+                                                <span>Register Now</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div id="success-message" class="hidden mil-center mil-up" style="margin-top: 40px; text-align: center;">
+                                    <h3 class="mil-mb-30">Welcome to the Family!</h3>
+                                    <p class="mil-mb-30">Your registration was successful. An automated email is on its way to you.</p>
+                                    <a href="https://chat.whatsapp.com/example" target="_blank" class="mil-button mil-arrow-place">
+                                        <span>Join WhatsApp Group</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- footer -->
+                <footer class="mil-dark-bg">
+                    <div class="mi-invert-fix">
+                        <div class="container mil-p-120-60">
+                            <div class="row justify-content-between">
+                                <div class="col-md-4 col-lg-4 mil-mb-60">
+                                    <div class="mil-muted mil-logo mil-up mil-mb-30" style="font-size: 24px; font-weight: 600; letter-spacing: 1px;">YMG.</div>
+                                    <p class="mil-light-soft mil-up">&copy; 2026 Youth Magnets Gauteng. All rights reserved.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Theme JS Plugins -->
+    <script src="{{ url_for('static', filename='js/plugins/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plugins/swup.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plugins/swiper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plugins/fancybox.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plugins/gsap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plugins/smooth-scroll.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plugins/ScrollTrigger.min.js') }}"></script>
+    
+    <!-- Theme Main JS -->
+    <script src="{{ url_for('static', filename='js/theme-main.js') }}"></script>
+
+    <!-- Custom YMG App JS (Form Logic) -->
     <script type="module" src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>

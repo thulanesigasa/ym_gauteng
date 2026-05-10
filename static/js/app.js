@@ -1,52 +1,7 @@
 import { validateRegistrationForm } from './validation.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Initialize Lenis Smooth Scroll
-    const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        orientation: 'vertical',
-        gestureOrientation: 'vertical',
-        smoothWheel: true,
-        wheelMultiplier: 1,
-        smoothTouch: false,
-        touchMultiplier: 2,
-        infinite: false,
-    });
-
-    function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    // 2. Navbar Scroll Effect
-    const navbar = document.getElementById('main-nav');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-
-    // 3. Reveal Animations on Scroll
-    const revealElements = document.querySelectorAll('.reveal-up');
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.15
-    });
-
-    revealElements.forEach(el => revealObserver.observe(el));
-
-    // 4. Toast Notification System
+    // 1. Toast Notification System
     const toastContainer = document.getElementById('toast-container');
     function showToast(message, type = 'success') {
         const toast = document.createElement('div');
@@ -60,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 4000);
     }
 
-    // 5. YVP Form Submission Logic with Validation
+    // 2. YVP Form Submission Logic with Validation
     const yvpForm = document.getElementById('yvp-form');
     const successMessage = document.getElementById('success-message');
     const submitBtn = document.getElementById('submit-btn');
@@ -80,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // UI Feedback
-            submitBtn.textContent = 'Registering...';
+            submitBtn.querySelector('span').textContent = 'Registering...';
             submitBtn.disabled = true;
 
             // Send Real Backend Call with sanitized data
@@ -100,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 
                 // Success State
-                yvpForm.classList.add('hidden');
+                yvpForm.style.display = 'none';
                 successMessage.classList.remove('hidden');
                 showToast('Registration successful! Welcome to the family.', 'success');
                 
@@ -116,55 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
             } catch (error) {
                 console.error('Registration failed:', error);
                 showToast(error.message || 'Registration failed. Please try again.', 'error');
-                submitBtn.textContent = 'Try Again';
+                submitBtn.querySelector('span').textContent = 'Register Now';
                 submitBtn.disabled = false;
             }
         });
     }
-
-    // 7. Mobile Menu Toggle with ARIA & Focus Trap
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
-    const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-
-    if (mobileMenu) {
-        mobileMenu.addEventListener('click', () => {
-            const isOpen = navLinks.classList.toggle('active');
-            mobileMenu.classList.toggle('open');
-            mobileMenu.setAttribute('aria-expanded', isOpen);
-            document.body.style.overflow = isOpen ? 'hidden' : 'initial';
-            
-            if (isOpen) {
-                const firstFocusable = navLinks.querySelectorAll(focusableElements)[0];
-                if (firstFocusable) firstFocusable.focus();
-            }
-        });
-
-        // Close menu on link click
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                mobileMenu.classList.remove('open');
-                mobileMenu.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = 'initial';
-            });
-        });
-    }
-
-    // 7. Smooth Scroll for Anchor Links (using Lenis)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                lenis.scrollTo(targetElement, {
-                    offset: -80,
-                    duration: 1.5
-                });
-            }
-        });
-    });
 });
