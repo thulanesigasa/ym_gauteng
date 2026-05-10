@@ -220,27 +220,43 @@ h1, h2, h3 {
     flex-wrap: wrap;
 }
 
-.mil-social-grid a {
+/* Social Cards (Uiverse.io Style) */
+.social-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-decoration: none;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-size: 0.9rem;
-    transition: var(--transition-smooth);
 }
 
-.mil-social-grid a:hover {
-    color: var(--blue-light) !important;
-    transform: translateY(-5px);
+.social-card {
+    width: 90px;
+    height: 90px;
+    outline: none;
+    border: none;
+    background: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
-/* Utilities */
-.hidden {
-    display: none !important;
-}
+.card-tiktok { border-radius: 90px 5px 5px 5px; }
+.card-instagram { border-radius: 5px 90px 5px 5px; }
+.card-facebook { border-radius: 5px 5px 5px 90px; }
 
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-20px); }
-    60% { transform: translateY(-10px); }
-}
+.card-tiktok .tiktok-icon { fill: #000000; transition: .2s ease-in-out; }
+.card-instagram .instagram-icon { fill: #cc39a4; transition: .2s ease-in-out; }
+.card-facebook .facebook-icon { fill: #1877F2; transition: .2s ease-in-out; }
+
+.social-card-wrapper:hover .card-tiktok { background-color: #000000; transform: scale(1.1); }
+.social-card-wrapper:hover .card-tiktok .tiktok-icon { fill: white; }
+
+.social-card-wrapper:hover .card-instagram { background-color: #cc39a4; transform: scale(1.1); }
+.social-card-wrapper:hover .card-instagram .instagram-icon { fill: white; }
+
+.social-card-wrapper:hover .card-facebook { background-color: #1877F2; transform: scale(1.1); }
+.social-card-wrapper:hover .card-facebook .facebook-icon { fill: white; }
+
+.mil-mt-15 { margin-top: 15px; }
