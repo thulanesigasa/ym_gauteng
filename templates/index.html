@@ -308,9 +308,6 @@
                                 <div id="success-message" class="hidden mil-center mil-up" style="margin-top: 40px; text-align: center;">
                                     <h3 class="mil-mb-30">Welcome to the Family!</h3>
                                     <p class="mil-mb-30">Your registration was successful. An automated email is on its way to you.</p>
-                                    <a href="https://chat.whatsapp.com/example" target="_blank" class="mil-button mil-arrow-place">
-                                        <span>Join our Whatsapp</span>
-                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -321,43 +318,26 @@
                 <section id="socials" class="mil-dark-bg">
                     <div class="mi-invert-fix">
                         <div class="container mil-p-120-120">
-                            <div class="row align-items-center">
-                                <!-- Column 1: Title -->
-                                <div class="col-md-4 col-lg-4 mil-mb-30">
-                                    <h2 class="mil-muted mil-up" style="line-height: 1.1;">CONNECT <br><span class="mil-thin">WITH US</span></h2>
-                                </div>
-                                <!-- Column 2: Text & Button -->
-                                <div class="col-md-4 col-lg-4 mil-mb-30">
-                                    <p class="mil-light-soft mil-up mil-mb-30">Join our community online and stay updated with our latest movements.</p>
-                                    <div class="mil-up">
-                                        <a href="https://chat.whatsapp.com/general" target="_blank" class="mil-button mil-arrow-place">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 mil-center" style="flex-direction: column;">
+                                    <h2 class="mil-muted mil-up mil-mb-60" style="font-size: 2.2rem; line-height: 1.3;">Join our community online and stay updated with our latest movements.</h2>
+                                    
+                                    <div class="mil-up" style="display: flex; gap: 20px; align-items: center; justify-content: center; flex-wrap: wrap;">
+                                        <a href="https://chat.whatsapp.com/general" target="_blank" aria-label="Join our Whatsapp" class="mil-button mil-arrow-place">
                                             <span>Join our Whatsapp</span>
                                         </a>
-                                    </div>
-                                </div>
-                                <!-- Column 3: Social Links -->
-                                <div class="col-md-4 col-lg-4 mil-mb-30">
-                                    <div class="row">
-                                        <div class="col-12 mil-up mil-mb-30">
-                                            <a href="https://chat.whatsapp.com/general" target="_blank" aria-label="Join WhatsApp Group" class="mil-button mil-arrow-place" style="width: 100%;">
-                                                <span>Join our Whatsapp</span>
-                                            </a>
-                                        </div>
-                                        <div class="col-12 mil-up mil-mb-30">
-                                            <a href="https://tiktok.com/@youthmagnetsgauteng" target="_blank" aria-label="Follow on TikTok" class="mil-button mil-arrow-place" style="width: 100%;">
-                                                <span>Follow our tiktok</span>
-                                            </a>
-                                        </div>
-                                        <div class="col-12 mil-up mil-mb-30">
-                                            <a href="https://instagram.com/youthmagnetsgauteng" target="_blank" aria-label="Follow on Instagram" class="mil-button mil-arrow-place" style="width: 100%;">
-                                                <span>Follow our instagram</span>
-                                            </a>
-                                        </div>
-                                        <div class="col-12 mil-up">
-                                            <a href="https://facebook.com/youthmagnetsgauteng" target="_blank" aria-label="Follow on Facebook" class="mil-button mil-arrow-place" style="width: 100%;">
-                                                <span>Follow our facebook</span>
-                                            </a>
-                                        </div>
+
+                                        <a href="https://tiktok.com/@youthmagnetsgauteng" target="_blank" aria-label="Follow our TikTok" class="mil-button mil-icon-button mil-arrow-place" style="padding: 0; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center; border-radius: 4px;">
+                                            <img src="{{ url_for('static', filename='assets/icons/tiktok.svg') }}" alt="TikTok" style="width: 24px; filter: invert(1);">
+                                        </a>
+
+                                        <a href="https://instagram.com/youthmagnetsgauteng" target="_blank" aria-label="Follow our Instagram" class="mil-button mil-icon-button mil-arrow-place" style="padding: 0; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center; border-radius: 4px;">
+                                            <img src="{{ url_for('static', filename='assets/icons/instagram.svg') }}" alt="Instagram" style="width: 24px; filter: invert(1);">
+                                        </a>
+
+                                        <a href="https://facebook.com/youthmagnetsgauteng" target="_blank" aria-label="Follow our Facebook" class="mil-button mil-icon-button mil-arrow-place" style="padding: 0; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center; border-radius: 4px;">
+                                            <img src="{{ url_for('static', filename='assets/icons/facebook.svg') }}" alt="Facebook" style="width: 24px; filter: invert(1);">
+                                        </a>
                                     </div>
                                 </div>
                             </div>
