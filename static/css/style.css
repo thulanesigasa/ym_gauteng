@@ -233,3 +233,8 @@ h1, h2, h3 {
     color: var(--blue-light) !important;
     transform: translateY(-5px);
 }
+
+/* Utilities */
+.hidden {
+    display: none !important;
+}
