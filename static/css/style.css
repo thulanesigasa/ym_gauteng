@@ -34,7 +34,6 @@
 html {
     scroll-behavior: initial;
     overflow-x: hidden;
-    font-size: 85%; /* Scale down to match 80% browser zoom aesthetic */
 }
 
 body {
@@ -256,3 +255,13 @@ h1, h2, h3 {
 .social-card-wrapper:hover .card-facebook .facebook-icon { fill: #1877F2; }
 
 .mil-mt-15 { margin-top: 15px; }
+
+/* Utility: hidden by default, revealed by JS on success */
+.hidden {
+    display: none !important;
+}
+
+/* Scroll icon: rotate the horizontal arrow SVG to point downward */
+.mil-icon-button.mil-arrow-down svg {
+    transform: rotate(90deg);
+}
