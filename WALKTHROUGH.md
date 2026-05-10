@@ -1,47 +1,47 @@
-# Deployment Walkthrough & Security Guide
+# Project Walkthrough: Youth Magnets Gauteng
 
-This document provides crucial steps for securing your environment and deploying the Youth Magnets Gauteng application to production.
+This document explains the architecture of the Youth Magnets Gauteng website and provides instructions for maintenance and deployment.
 
-## 🔴 CRITICAL: Security Lockdown (Neon PostgreSQL)
+## 1. Project Architecture
 
-Because your `.env` file was previously tracked by Git and exposed your database credentials, **your Neon PostgreSQL password is compromised**. You MUST complete these steps immediately:
+The application is built using a modern **Flask** backend and a **Vanilla JavaScript** frontend, following the MASUVE (Power-Packed) aesthetic.
 
-1. **Rotate the Password in Neon**:
-   - Log in to your [Neon Dashboard](https://console.neon.tech/).
-   - Navigate to your `youtmagnets` project.
-   - Go to the **Roles** or **Settings** section.
-   - Select your user (e.g., `postgres` or the specific user you created).
-   - Click **Reset Password** and copy the new connection string.
-   
-2. **Update Local Environment**:
-   - Open your `.env` file and replace the old `DATABASE_URL` with the new one.
-   
-3. **Verify Git Hygiene**:
-   - I have already verified that `.env` is removed from Git tracking. You can confirm this by running `git status` locally. It should not show `.env` as an untracked file if you have `.env` inside `.gitignore`.
+- **Backend**: Python Flask handles API routing, server-side validation, and database interactions.
+- **Frontend**: HTML5, CSS3 (Vanilla), and ES6+ Modules. Animations are powered by **GSAP** and **ScrollTrigger**.
+- **Database**: **PostgreSQL** (via SQLAlchemy) stores partner registrations.
+- **Security**: **Flask-WTF** provides CSRF protection. Environment variables manage sensitive data.
 
-## 🚀 Production Deployment (Render / Heroku)
+## 2. Rotating Exposed Database Credentials
 
-### 1. Preparing the Environment Variables
-On your hosting provider (e.g., Render), navigate to the **Environment** settings for your Web Service and add the following keys:
-- `SECRET_KEY`: Generate a long, random string (e.g., `python -c "import secrets; print(secrets.token_hex(32))"`).
-- `DATABASE_URL`: Your NEW, secure Neon PostgreSQL connection string.
-- `PYTHON_VERSION`: Set to `3.10` or higher.
+If your database credentials (like the Neon PostgreSQL URI) are exposed, follow these steps immediately:
 
-### 2. WSGI Server (Gunicorn)
-Your application is currently run via `python app.py` locally. In production, you must use a proper WSGI server like `gunicorn`.
-- Ensure `gunicorn` is in your `requirements.txt`.
-- Set the start command in your hosting provider to:
-  ```bash
-  gunicorn app:app
-  ```
+1. **Rotate Password**: Go to your [Neon Dashboard](https://console.neon.tech/), navigate to your project, and click "Reset Password" for your database user.
+2. **Update Environment**: Update the `DATABASE_URL` in your `.env` file on your local machine and your production server.
+3. **Clear Git Cache**: If the credentials were committed, remove the file from history:
+   ```bash
+   git rm --cached .env
+   git commit -m "Remove sensitive .env from tracking"
+   git push origin main
+   ```
 
-### 3. Database Migrations
-Since your schema is finalized (with the `created_at` timestamp), any future changes to `models.py` will require `Flask-Migrate`.
-If you deploy to a fresh database, `db.create_all()` will automatically generate the required tables upon the first request.
+## 3. Production Deployment
 
-## 🎨 Asset Management (Merch Store)
-The **Merch** section is currently populated with images from `static/assets/images/`.
-When you receive the final professional photography:
-1. Upload the new images to the `static/assets/images/` directory.
-2. Update the `img src` paths in `templates/index.html` under the `<section id="merch">`.
-3. If you want to switch back to the "Dropping Soon" banner, simply add the `hidden` class to `.mil-merch-grid` and remove it from `.mil-merch-banner`.
+### Option A: Render (Recommended for Flask)
+1. Create a new "Web Service" on [Render](https://render.com/).
+2. Connect your GitHub repository.
+3. Set **Environment Variables**:
+   - `DATABASE_URL`: Your PostgreSQL URI.
+   - `SECRET_KEY`: A long, random string.
+   - `PYTHON_VERSION`: `3.10.0` or higher.
+4. Build Command: `pip install -r requirements.txt`
+5. Start Command: `gunicorn app:app`
+
+### Option B: Vercel (Using Python Runtime)
+1. Install Vercel CLI: `npm i -g vercel`
+2. Run `vercel` in the project root.
+3. Configure `vercel.json` if necessary (though the current structure is standard).
+
+## 4. Maintenance
+
+- **Adding Merch**: To add new items, update the `mil-merch-grid` in `templates/index.html` and place images in `static/img/merch/`.
+- **Database Changes**: If you modify `models.py`, use `Flask-Migrate` to update the database schema.
