@@ -69,20 +69,162 @@
                     <span></span>
                 </div>
             </div>
-            <div class="container">
+            <div class="container" style="max-width: 1600px; padding: 0 5vw;">
                 <div class="mil-menu-content">
-                    <div class="row">
-                        <div class="col-xl-5">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-xl-4">
+                            <style>
+                                .mil-main-menu > ul > li > a:hover { padding-left: 25px; }
+                                .mil-main-menu > ul > li > a:hover:before { transform: scale(1); }
+                                
+                                /* Fix for tall menu overlapping on screens */
+                                .mil-menu-content { 
+                                    overflow-y: auto; 
+                                    max-height: 100vh; 
+                                    padding-top: 120px;
+                                    padding-bottom: 80px;
+                                    align-items: flex-start !important;
+                                }
+                                
+                                /* Adjust item spacing to fit all 6 accordions */
+                                .mil-main-menu > ul > li {
+                                    margin-bottom: 25px !important;
+                                }
+                                .mil-main-menu > ul > li > a {
+                                    font-size: 28px !important;
+                                }
+                                
+                                /* Hide scrollbar for a cleaner look */
+                                .mil-menu-content::-webkit-scrollbar {
+                                    width: 0px;
+                                    background: transparent;
+                                }
+                            </style>
                             <nav class="mil-main-menu" id="swupMenu">
                                 <ul>
-                                    <li class="mil-active"><a href="#hero">Home</a></li>
-                                    <li><a href="#about">About</a></li>
-                                    <li><a href="#departments">Departments</a></li>
-                                    <li><a href="#merch">Merch</a></li>
-                                    <li><a href="#register">Join YVP</a></li>
-                                    <li><a href="#socials">Socials</a></li>
+                                    <li class="mil-has-children mil-active">
+                                        <a href="#.">Home</a>
+                                        <ul>
+                                            <li><a href="#hero">Welcome</a></li>
+                                            <li><a href="#hero">Our Mission</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="mil-has-children">
+                                        <a href="#.">About</a>
+                                        <ul>
+                                            <li><a href="#about">Who We Are</a></li>
+                                            <li><a href="#about">Our Story</a></li>
+                                            <li><a href="#about">Leadership</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="mil-has-children">
+                                        <a href="#.">Departments</a>
+                                        <ul>
+                                            <li><a href="#departments">EmpowerHer</a></li>
+                                            <li><a href="#departments">KFMI Youth</a></li>
+                                            <li><a href="#departments">Youth Magnets Gauteng</a></li>
+                                            <li><a href="#departments">YM Minister</a></li>
+                                            <li><a href="#departments">BTA Youth Choir</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="mil-has-children">
+                                        <a href="#.">Merch</a>
+                                        <ul>
+                                            <li><a href="#merch">T-Shirts</a></li>
+                                            <li><a href="#merch">Hoodies & Sweaters</a></li>
+                                            <li><a href="#merch">Caps & Accessories</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="mil-has-children">
+                                        <a href="#.">Join the family</a>
+                                        <ul>
+                                            <li><a href="https://chat.whatsapp.com/GiIZyk5cCOrJzO6EBeGaIM" target="_blank" data-no-swup>WhatsApp Group</a></li>
+                                            <li><a href="#about">Membership</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="mil-has-children">
+                                        <a href="#.">Socials</a>
+                                        <ul>
+                                            <li><a href="https://www.tiktok.com/@youthmagnets_gauteng" target="_blank" data-no-swup>TikTok</a></li>
+                                            <li><a href="https://www.instagram.com/ecgtjnc_youthmagnetsgauteng/" target="_blank" data-no-swup>Instagram</a></li>
+                                            <li><a href="https://web.facebook.com/people/ECG-Youth-Magnet-Gauteng/61577078833532/" target="_blank" data-no-swup>Facebook</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </nav>
+                        </div>
+                        <div class="col-xl-7 mil-menu-right">
+                            <style>
+                                .mil-menu-right { padding-left: 50px; position: relative; }
+                                .mil-menu-list { padding: 0; margin: 0; list-style: none; }
+                                .mil-menu-list li { margin-bottom: 15px; }
+                                .mil-menu-list li a { color: rgba(255, 255, 255, 0.6); font-size: 14px; transition: 0.4s ease; text-decoration: none; display: block; }
+                                .mil-menu-list li a:hover { color: #fff; }
+                                .mil-divider { height: 1px; background-color: rgba(255, 255, 255, 0.1); width: 100%; margin-top: 30px; margin-bottom: 60px; }
+                                .menu-tab-content { display: none; opacity: 0; transition: opacity 0.3s ease; }
+                                .menu-tab-content.active { display: block; opacity: 1; }
+                                @media screen and (min-width: 1200px) { .mil-menu-right { padding-left: 80px; border-left: 1px solid rgba(255,255,255,0.05); min-height: 350px; } }
+                                @media screen and (max-width: 1199px) { .mil-menu-right { padding-left: 15px; margin-top: 60px; } }
+                            </style>
+
+                            <!-- Static Right Side Content -->
+                            <div class="row">
+                                <div class="col-lg-6 mil-mb-30">
+                                    <h6 class="mil-muted mil-mb-30">Our Departments</h6>
+                                    <ul class="mil-menu-list">
+                                        <li><a href="#departments">EmpowerHer</a></li>
+                                        <li><a href="#departments">KFMI Youth</a></li>
+                                        <li><a href="#departments">Youth Magnets Gauteng</a></li>
+                                        <li><a href="#departments">YM Minister</a></li>
+                                        <li><a href="#departments">BTA Youth Choir</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-6 mil-mb-30">
+                                    <h6 class="mil-muted mil-mb-30">Quick Links</h6>
+                                    <ul class="mil-menu-list">
+                                        <li><a href="#about">About Youth Magnets Gauteng</a></li>
+                                        <li><a href="#merch">Official Merchandise</a></li>
+                                        <li><a href="https://chat.whatsapp.com/GiIZyk5cCOrJzO6EBeGaIM" target="_blank" data-no-swup>Join our WhatsApp Family</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mil-divider"></div>
+                            <div class="row">
+                                <div class="col-lg-6 mil-mb-30">
+                                    <h6 class="mil-muted mil-mb-30">Contact Us</h6>
+                                    <p class="mil-light-soft" style="font-size: 14px; line-height: 1.8;">youthmagnetsgauteng.co.za<br>Gauteng, South Africa<br>+27 60 476 6693</p>
+                                </div>
+                                <div class="col-lg-6 mil-mb-30">
+                                    <h6 class="mil-muted mil-mb-30">Our Socials</h6>
+                                    <ul class="mil-menu-list">
+                                        <li><a href="https://www.tiktok.com/@youthmagnets_gauteng" target="_blank" data-no-swup>TikTok</a></li>
+                                        <li><a href="https://www.instagram.com/ecgtjnc_youthmagnetsgauteng/" target="_blank" data-no-swup>Instagram</a></li>
+                                        <li><a href="https://web.facebook.com/people/ECG-Youth-Magnet-Gauteng/61577078833532/" target="_blank" data-no-swup>Facebook</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <script>
+                                document.addEventListener("DOMContentLoaded", function() {
+                                    const menuLinks = document.querySelectorAll('.mil-main-menu ul li a');
+                                    
+                                    menuLinks.forEach(link => {
+                                        // Close menu on click (unless it's an accordion toggle)
+                                        link.addEventListener('click', (e) => {
+                                            const parentLi = link.parentElement;
+                                            if (parentLi.classList.contains('mil-has-children')) {
+                                                // It's an accordion, let the theme JS handle the toggle.
+                                                // Stop it from closing the mega menu.
+                                            } else {
+                                                // Standard link, close the menu overlay.
+                                                document.querySelectorAll('.mil-menu-btn').forEach(btn => btn.classList.remove('mil-active'));
+                                                const menuFrame = document.querySelector('.mil-menu-frame');
+                                                if (menuFrame) menuFrame.classList.remove('mil-active');
+                                            }
+                                        });
+                                    });
+                                });
+                            </script>
                         </div>
                     </div>
                 </div>
@@ -139,8 +281,8 @@
                                             next generation of leaders.</p>
                                     </div>
                                 </div>
-                                <a href="#register" class="mil-button mil-arrow-place mil-btn-space">
-                                    <span>Become a Partner</span>
+                                <a href="https://chat.whatsapp.com/GiIZyk5cCOrJzO6EBeGaIM" target="_blank" data-no-swup class="mil-button mil-arrow-place mil-btn-space">
+                                    <span>Join the family</span>
                                 </a>
                                 <a href="#about" class="mil-link mil-muted mil-arrow-place">
                                     <span>Learn More</span>
@@ -206,9 +348,37 @@
                                             class="mil-thin">Departments</span></h2>
                                 </div>
                             </div>
-                            <div class="row mil-services-grid m-0">
+                            <style>
+                                .mil-card-bg {
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    background-size: contain;
+                                    background-repeat: no-repeat;
+                                    background-position: center;
+                                    filter: blur(4px);
+                                    opacity: 0;
+                                    transition: opacity 0.4s ease;
+                                    z-index: 0;
+                                    pointer-events: none;
+                                }
+                                .mil-service-card-sm {
+                                    overflow: hidden;
+                                }
+                                .mil-service-card-sm:hover .mil-card-bg {
+                                    opacity: 0.3;
+                                }
+                                .mil-service-card-sm > h5, .mil-service-card-sm > p {
+                                    position: relative;
+                                    z-index: 1;
+                                }
+                            </style>
+                            <div class="row mil-services-grid justify-content-center m-0">
                                 <div class="col-md-6 col-lg-4 mil-services-grid-item p-0">
                                     <a href="#." class="mil-service-card-sm mil-up">
+                                        <div class="mil-card-bg" style="background-image: url('/static/img/EH.png');"></div>
                                         <h5 class="mil-muted mil-mb-30">EmpowerHer</h5>
                                         <p class="mil-light-soft mil-mb-30">Fostering leadership and personal
                                             development for young women.</p>
@@ -223,23 +393,24 @@
                                 </div>
                                 <div class="col-md-6 col-lg-4 mil-services-grid-item p-0">
                                     <a href="#." class="mil-service-card-sm mil-up">
-                                        <h5 class="mil-muted mil-mb-30">Media & Events</h5>
-                                        <p class="mil-light-soft mil-mb-30">Capturing the vision and creating immersive
-                                            experiences.</p>
-                                    </a>
-                                </div>
-                                <div class="col-md-6 col-lg-6 mil-services-grid-item p-0">
-                                    <a href="#." class="mil-service-card-sm mil-up">
+                                        <div class="mil-card-bg" style="background-image: url('/static/img/KFMI.png');"></div>
                                         <h5 class="mil-muted mil-mb-30">KFMI Youth</h5>
                                         <p class="mil-light-soft mil-mb-30">Igniting spiritual fire and foundation in
                                             the youth.</p>
                                     </a>
                                 </div>
-                                <div class="col-md-6 col-lg-6 mil-services-grid-item p-0">
+                                <div class="col-md-6 col-lg-4 mil-services-grid-item p-0">
                                     <a href="#." class="mil-service-card-sm mil-up">
-                                        <h5 class="mil-muted mil-mb-30">Campus Ministry</h5>
-                                        <p class="mil-light-soft mil-mb-30">Bringing the message of hope to educational
-                                            institutions.</p>
+                                        <div class="mil-card-bg" style="background-image: url('/static/img/YMG.png'); filter: blur(4px) brightness(0) invert(1); background-size: 70%;"></div>
+                                        <h5 class="mil-muted mil-mb-30">Youth Magnets Gauteng</h5>
+                                        <p class="mil-light-soft mil-mb-30">Attracting, Empowering, and Deploying the next generation.</p>
+                                    </a>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mil-services-grid-item p-0">
+                                    <a href="#." class="mil-service-card-sm mil-up">
+                                        <div class="mil-card-bg" style="background-image: url('/static/img/YMM.png'); background-size: 70%;"></div>
+                                        <h5 class="mil-muted mil-mb-30">YM Minister</h5>
+                                        <p class="mil-light-soft mil-mb-30">Training and equipping youth for ministerial leadership.</p>
                                     </a>
                                 </div>
                             </div>
@@ -287,45 +458,7 @@
                     </div>
                 </section>
 
-                <!-- registration form -->
-                <section id="register">
-                    <div class="container mil-p-120-120">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <h2 class="mil-center mil-up mil-mb-15">Youth Vision <span
-                                        class="mil-thin">Partners</span></h2>
-                                <p class="mil-center mil-up mil-mb-15">Join the movement as a partner and help us shape
-                                    the future.</p>
-                                <form id="yvp-form" class="mil-up" novalidate>
-                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <input type="text" id="name" name="name" placeholder="Full Name" required>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <input type="email" id="email" name="email" placeholder="Email Address"
-                                                required>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <input type="tel" id="phone" name="phone" placeholder="Phone Number"
-                                                required>
-                                        </div>
-                                        <div class="col-lg-12 mil-center mil-mb-60">
-                                            <button type="submit" class="mil-button mil-arrow-place" id="submit-btn">
-                                                <span>Register Now</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                                <div id="success-message" class="hidden mil-center mil-up"
-                                    style="margin-top: 40px; text-align: center;">
-                                    <h3 class="mil-mb-60" style="width: 100%; text-align: center;">Welcome to the
-                                        Family!</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+
 
                 <!-- socials -->
                 <section id="socials" class="mil-dark-bg">
