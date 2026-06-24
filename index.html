@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="static/css/theme-style.css">
 
     <!-- Original YMG CSS (Kept for toast notifications if needed) -->
-    <link rel="stylesheet" href="static/css/style.css?v=1782319749">
+    <link rel="stylesheet" href="static/css/style.css?v=1782319811">
 </head>
 
 <body>
@@ -86,12 +86,12 @@
                                     align-items: flex-start !important;
                                 }
                                 
-                                /* Adjust item spacing to fit all 6 accordions */
+                                /* Adjust item spacing dynamically based on screen height */
                                 .mil-main-menu > ul > li {
-                                    margin-bottom: 25px !important;
+                                    margin-bottom: max(15px, 2.5vh) !important;
                                 }
                                 .mil-main-menu > ul > li > a {
-                                    font-size: 28px !important;
+                                    font-size: max(20px, 3.5vh) !important;
                                 }
                                 
                                 /* Hide scrollbar for a cleaner look */
