@@ -22,6 +22,36 @@
 
     <!-- Original YMG CSS (Kept for toast notifications if needed) -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Custom Mobile Responsiveness Overrides -->
+    <style>
+        @media screen and (max-width: 768px) {
+            /* 16px Gutters and Container Margins (UI/UX Guide) */
+            :root {
+                --bs-gutter-x: 16px !important;
+            }
+            .container {
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+            }
+            .row {
+                margin-left: -8px !important;
+                margin-right: -8px !important;
+            }
+            .row > * {
+                padding-left: 8px !important;
+                padding-right: 8px !important;
+            }
+
+            /* Tighter Section Paddings for App-like feel */
+            .mil-p-120-120 { padding-top: 60px !important; padding-bottom: 60px !important; }
+            .mil-p-120-90 { padding-top: 60px !important; padding-bottom: 45px !important; }
+            .mil-p-120-0 { padding-top: 60px !important; }
+            .mil-p-0-120 { padding-bottom: 60px !important; }
+            .mil-p-120-60 { padding-top: 60px !important; padding-bottom: 30px !important; }
+            .mil-p-120-30 { padding-top: 60px !important; padding-bottom: 15px !important; }
+        }
+    </style>
 </head>
 
 <body>
