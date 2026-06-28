@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="static/css/theme-style.css">
 
     <!-- Original YMG CSS (Kept for toast notifications if needed) -->
-    <link rel="stylesheet" href="static/css/style.css?v=1782319891">
+    <link rel="stylesheet" href="static/css/style.css?v=1782628417">
 </head>
 
 <body>
@@ -80,10 +80,12 @@
                                 /* Fix for tall menu overlapping on screens */
                                 .mil-menu-content { 
                                     overflow-y: auto; 
+                                    -webkit-overflow-scrolling: touch;
                                     max-height: 100vh; 
                                     padding-top: 120px;
                                     padding-bottom: 80px;
                                     align-items: flex-start !important;
+                                    pointer-events: auto !important;
                                 }
                                 
                                 /* Adjust item spacing dynamically based on screen height */
